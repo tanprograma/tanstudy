@@ -42,8 +42,9 @@ export class LoginComponent implements OnInit {
   }
   redirect() {
     if (this.loginService.loggedin) {
+      this.isLoading = false;
       this.router.navigate(['/app/questions']);
-      this.router.navigate(['/app/questions']);
+
       return;
     }
     this.router.navigate(['/app/questions']);
