@@ -1,0 +1,20 @@
+.card {
+  height: 100%;
+}
+.card-item,
+.card-value {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+}
+.card-item {
+  height: 40%;
+  background-color: rgb(242, 238, 238);
+  color: black;
+}
+.card-value {
+  height: 60%;
+  background-color: rgb(74, 73, 73);
+  color: white;
+}

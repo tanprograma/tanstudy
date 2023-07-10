@@ -1,0 +1,30 @@
+.login {
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(66, 64, 64);
+}
+.form {
+  flex: 0 0 30%;
+
+  min-height: 80%;
+  background-color: rgb(187, 177, 164);
+  color: white;
+  border-radius: 10px;
+}
+.formgroup {
+  margin-top: 10px;
+  width: 70%;
+}
+.formgroup-item {
+  padding: 2px 2px;
+  border-radius: 5px;
+}
+.title {
+  text-align: center;
+}
+.instead {
+  margin-top: 50px;
+}

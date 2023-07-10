@@ -1,0 +1,11 @@
+a {
+  display: inline-block;
+  color: black;
+  height: 100%;
+  width: 100%;
+  text-decoration: none;
+}
+a:hover {
+  background-color: rgb(126, 122, 122);
+  color: white;
+}

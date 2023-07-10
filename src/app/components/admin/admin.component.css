@@ -1,0 +1,12 @@
+.admin {
+  display: grid;
+  height: 90vh;
+  grid-template-columns: 20% 80%;
+}
+.admin-control {
+  background-color: rgb(237, 243, 244);
+  color: rgb(91, 88, 88);
+}
+.selected {
+  background-color: rgb(243, 220, 233);
+}

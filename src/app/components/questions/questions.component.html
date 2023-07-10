@@ -1,0 +1,96 @@
+<div class="questions">
+  <div class="sidemenu">
+    <!-- <p class="menu-heading">select topic</p> -->
+    <div class="topics">
+      <div class="formgroup">
+        <label for="topic" class="formgroup-item">select topic</label>
+        <select
+          name="topic"
+          id="topic"
+          #t
+          class="formgroup-item"
+          (click)="filterTopic(t.value)"
+        >
+          <option [value]="t.topic" class="topic-item" *ngFor="let t of topics">
+            {{ t.topic }}
+          </option>
+        </select>
+      </div>
+      <!-- <li
+        class="topic-item"
+        *ngFor="let t of topics"
+        [class.selected-topic]="t.topic == topic"
+        (click)="filterTopic(t.topic)"
+      >
+        {{ t.topic }}
+      </li> -->
+    </div>
+    <!-- <p class="menu-heading">filter by date</p> -->
+    <div class="formgroup">
+      <label for="date" class="formgroup-item">filter date</label>
+      <input
+        class="formgroup-item"
+        type="date"
+        name="date"
+        id="date"
+        [(ngModel)]="date"
+      />
+      <button class="formgroup-item" (click)="filter()">SEARCH</button>
+      <button class="formgroup-item" (click)="clearDateFilter()">
+        CLEAR FILTER
+      </button>
+    </div>
+    <!-- <p class="menu-heading">PLAYER</p> -->
+    <div class="formgroup">
+      <label for="" class="formgroup-item">PLAYER</label>
+      <button
+        class="formgroup-item playerOff"
+        [class.playerOn]="player"
+        (click)="switchPlayer()"
+      >
+        {{ player ? "TURN OFF" : "TURN ON" }}
+      </button>
+    </div>
+  </div>
+
+  <ul class="question-items" *ngIf="!player">
+    <li class="question-item" *ngFor="let question of filtered">
+      <p>{{ question.question }}</p>
+    </li>
+  </ul>
+  <div class="slideview" *ngIf="player">
+    <div class="info">
+      <div class="info-item">
+        <app-card [item]="'questions'" [value]="questions.length"></app-card>
+      </div>
+      <div class="info-item">
+        <app-card [item]="'topics'" [value]="topics.length"></app-card>
+      </div>
+      <div class="info-item">
+        <app-card [item]="'subtopics'" [value]="cardSubtopics()"></app-card>
+      </div>
+      <div class="info-item">
+        <app-card [item]="'current'" [value]="filtered.length"></app-card>
+      </div>
+    </div>
+    <div class="slideview-qn">
+      <div class="control">
+        <button class="control-btn" (click)="prev()">
+          <span class="icon"><fa-icon [icon]="leftIcon"></fa-icon></span
+          ><span class="text">prev</span>
+        </button>
+      </div>
+      <div class="actual-qn">
+        {{
+          filtered.length ? filtered[index].question : "no question to display"
+        }}
+      </div>
+      <div class="control">
+        <button class="control-btn" (click)="next()">
+          <span class="text">next</span
+          ><span class="icon"><fa-icon [icon]="rightIcon"></fa-icon></span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

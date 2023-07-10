@@ -1,0 +1,78 @@
+<div class="login" *ngIf="!user">
+  <form class="form">
+    <div class="formgroup">
+      <h1 class="title">TANSTUDY&reg;</h1>
+    </div>
+    <div class="formgroup">
+      <label for="username" class="formgroup-item">username</label>
+      <input
+        class="formgroup-item"
+        type="text"
+        id="username"
+        name="username"
+        [(ngModel)]="username"
+        autocomplete="off"
+      />
+    </div>
+    <div class="formgroup">
+      <label class="formgroup-item" for="password" class="formgroup-item"
+        >password</label
+      >
+      <input
+        class="formgroup-item"
+        type="password"
+        id="password"
+        name="username"
+        [(ngModel)]="password"
+        autocomplete="off"
+      />
+    </div>
+    <div class="formgroup">
+      <button (click)="login()" class="formgroup-item">LOGIN</button>
+    </div>
+    <div class="formgroup instead">
+      <button (click)="toggleLogin()" class="formgroup-item">
+        CREATE ACCOUNT
+      </button>
+    </div>
+  </form>
+</div>
+<div class="login" *ngIf="user">
+  <form class="form">
+    <div class="formgroup">
+      <h1 class="title">TANSTUDY&reg;</h1>
+    </div>
+    <div class="formgroup">
+      <label for="s_username" class="formgroup-item">username</label>
+      <input
+        class="formgroup-item"
+        type="text"
+        id="s_username"
+        name="s_username"
+        [(ngModel)]="username"
+        autocomplete="off"
+      />
+    </div>
+    <div class="formgroup">
+      <label class="formgroup-item" for="s_password" class="formgroup-item"
+        >password</label
+      >
+      <input
+        class="formgroup-item"
+        type="s_password"
+        id="s_password"
+        name="s_username"
+        [(ngModel)]="password"
+        autocomplete="off"
+      />
+    </div>
+    <div class="formgroup">
+      <button (click)="signin()" class="formgroup-item">SIGN IN</button>
+    </div>
+    <div class="formgroup instead">
+      <button (click)="toggleLogin()" class="formgroup-item">
+        LOGIN INSTEAD
+      </button>
+    </div>
+  </form>
+</div>

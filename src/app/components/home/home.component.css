@@ -1,0 +1,16 @@
+.main-app {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 15% 80% 5%;
+}
+.footer {
+  background-color: rgb(106, 103, 103);
+  color: rgb(179, 236, 236);
+}
+app-title {
+  height: 70%;
+}
+app-navigation {
+  height: 30%;
+}

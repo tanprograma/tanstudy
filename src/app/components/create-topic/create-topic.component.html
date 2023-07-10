@@ -1,0 +1,82 @@
+<div class="loader" *ngIf="loading">loading</div>
+<div class="admin-item non-loader">
+  <div class="form">
+    <div class="formgroup">
+      <p class="heading">TOPIC FORM</p>
+    </div>
+    <div class="formgroup">
+      <label for="topic" class="formgroup-item">topic</label>
+      <input
+        list="topics"
+        id="topic"
+        name="topic"
+        class="formgroup-item"
+        autocomplete="off"
+        [(ngModel)]="topic"
+      />
+      <datalist id="topics">
+        <option [value]="v.topic" *ngFor="let v of topics">
+          {{ v.topic }}
+        </option>
+      </datalist>
+    </div>
+
+    <div class="formgroup">
+      <button class="formgroup-item" (click)="add()">ADD topic</button>
+    </div>
+  </div>
+  <div class="view">
+    <div class="view-controls">
+      <ul class="view-control">
+        <li class="clickable" (click)="deleteAll()">
+          <span [ngStyle]="{ color: 'red' }" class="icon"
+            ><fa-icon [icon]="deleteIcon"></fa-icon
+          ></span>
+        </li>
+        <li class="clickable">
+          <span class="icon"><fa-icon [icon]="openIcon"></fa-icon></span>open
+        </li>
+        <li class="clickable" (click)="saveAll()">
+          <span class="icon"><fa-icon [icon]="saveIcon"></fa-icon></span>save
+        </li>
+      </ul>
+    </div>
+
+    <ul class="view-items">
+      <li class="view-item" *ngFor="let q of created_topics">
+        <div class="view-control-container">
+          <ul class="view-control">
+            <li>
+              <button (click)="deleteOne(q)" [ngStyle]="{ color: 'red' }">
+                <span class="icon"><fa-icon [icon]="deleteIcon"></fa-icon></span
+                >delete
+              </button>
+            </li>
+            <li>
+              <button>
+                <span class="icon"><fa-icon [icon]="editIcon"></fa-icon></span
+                >edit
+              </button>
+            </li>
+            <li>
+              <button (click)="saveOne(q)">
+                <span class="icon"><fa-icon [icon]="saveIcon"></fa-icon></span
+                >save
+              </button>
+            </li>
+          </ul>
+        </div>
+        <ul class="question">
+          <li>
+            <p>id</p>
+            <p>{{ q._id == undefined ? "not uploaded" : q._id }}</p>
+          </li>
+          <li>
+            <p>format</p>
+            <p>{{ q.topic }}</p>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>

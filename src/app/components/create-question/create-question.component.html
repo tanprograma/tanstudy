@@ -1,0 +1,91 @@
+<div class="loader" *ngIf="loading">loading</div>
+<div class="admin-item non-loader">
+  <div class="form">
+    <div class="formgroup">
+      <p class="heading">QUESTION FORM</p>
+    </div>
+    <div class="formgroup">
+      <label for="topic" class="formgroup-item">topic</label>
+      <select
+        name="topic"
+        id="topic"
+        class="formgroup-item"
+        [(ngModel)]="topic"
+        #xtopic
+        (change)="getSubtopics(xtopic.value)"
+      >
+        <option [value]="v.topic" *ngFor="let v of topics">
+          {{ v.topic }}
+        </option>
+      </select>
+    </div>
+    <div class="formgroup">
+      <label for="subtopic" class="formgroup-item">subtopic</label>
+      <select
+        name="subtopic"
+        id="subtopic"
+        #xsubtopic
+        class="formgroup-item"
+        [(ngModel)]="subtopic"
+        (change)="setSubtopic(xsubtopic.value)"
+      >
+        <option [value]="v.subtopic" *ngFor="let v of subtopics">
+          {{ v.subtopic }}
+        </option>
+      </select>
+    </div>
+    <div class="formgroup">
+      <label for="" class="formgroup-item">write question</label>
+      <textarea
+        name=""
+        id=""
+        cols="30"
+        rows="10"
+        class="formgroup-item"
+        [(ngModel)]="question"
+      ></textarea>
+    </div>
+    <div class="formgroup">
+      <button class="formgroup-item" (click)="add()">ADD QUESTION</button>
+    </div>
+  </div>
+  <div class="view">
+    <div class="view-controls">
+      <ul class="view-control">
+        <li [ngStyle]="{ color: 'red' }" class="clickable">
+          <span class="icon"><fa-icon [icon]="deleteIcon"></fa-icon></span>
+        </li>
+        <li class="clickable">
+          <span class="icon"><fa-icon [icon]="openIcon"></fa-icon></span>edit
+        </li>
+        <li (click)="saveAll()" class="clickable">
+          <span class="icon"><fa-icon [icon]="saveIcon"></fa-icon></span>save
+        </li>
+      </ul>
+    </div>
+
+    <ul class="view-items">
+      <li class="view-item" *ngFor="let q of questions">
+        <div class="view-control-container">
+          <ul class="view-control">
+            <li>topic: {{ q.topic }}</li>
+            <li>subtopic: {{ q.subtopic }}</li>
+            <li>
+              <button>
+                <span class="icon"><fa-icon [icon]="editIcon"></fa-icon></span
+                >edit
+              </button>
+            </li>
+            <li *ngIf="!q._id">
+              <button (click)="saveOne(q)">
+                <span class="icon"><fa-icon [icon]="saveIcon"></fa-icon></span
+                >save
+              </button>
+            </li>
+          </ul>
+        </div>
+        <p class="question">{{ q.question }}</p>
+      </li>
+    </ul>
+  </div>
+</div>
