@@ -8,25 +8,28 @@ import { LoginService } from 'src/app/services/login.service';
 })
 export class LoginComponent implements OnInit {
   user = false;
+  isLoading = false;
   username: string = '';
   password: string = '';
   constructor(public loginService: LoginService, private router: Router) {}
   ngOnInit(): void {}
   login() {
     // console.log({ username: this.username, password: this.password });
+    this.isLoading = true;
     this.loginService
       .login({ username: this.username, password: this.password })
       .subscribe((user) => {
-        this.router.navigate(['/app/questions']);
+        this.redirect();
         console.log({ user });
       });
   }
   signin() {
     // console.log({ username: this.username, password: this.password });
+    this.isLoading = true;
     this.loginService
       .signin({ username: this.username, password: this.password })
       .subscribe((user) => {
-        this.router.navigate(['/app/questions']);
+        this.redirect();
         console.log({ user });
       });
   }
@@ -36,5 +39,13 @@ export class LoginComponent implements OnInit {
 
   toggleLogin() {
     this.user = !this.user;
+  }
+  redirect() {
+    if (this.loginService.loggedin) {
+      this.router.navigate(['/app/questions']);
+      this.router.navigate(['/app/questions']);
+      return;
+    }
+    this.router.navigate(['/app/questions']);
   }
 }
