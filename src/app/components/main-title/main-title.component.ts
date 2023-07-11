@@ -1,5 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { faSignOut } from '@fortawesome/free-solid-svg-icons';
+import { Router } from '@angular/router';
+import { LoginService } from 'src/app/services/login.service';
 @Component({
   selector: 'app-main-title',
   templateUrl: './main-title.component.html',
@@ -50,5 +52,9 @@ export class MainTitleComponent implements OnInit, OnDestroy {
   setQuote(quote: { quote: string; author?: string }) {
     this.quote.quote = quote.quote;
     this.quote.author = quote.author;
+  }
+  constructor(private loginService: LoginService, private router: Router) {}
+  logout() {
+    this.loginService.logout();
   }
 }

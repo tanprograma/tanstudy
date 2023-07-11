@@ -11,6 +11,7 @@ export class LoginComponent implements OnInit {
   isLoading = false;
   username: string = '';
   password: string = '';
+  alias: string = 'admin';
   constructor(public loginService: LoginService, private router: Router) {}
   ngOnInit(): void {}
   login() {
@@ -19,6 +20,7 @@ export class LoginComponent implements OnInit {
     this.loginService
       .login({ username: this.username, password: this.password })
       .subscribe((user) => {
+        this.loginService.user.alias = user.alias;
         this.redirect();
         console.log({ user });
       });
@@ -27,8 +29,13 @@ export class LoginComponent implements OnInit {
     // console.log({ username: this.username, password: this.password });
     this.isLoading = true;
     this.loginService
-      .signin({ username: this.username, password: this.password })
+      .signin({
+        username: this.username,
+        password: this.password,
+        alias: this.alias,
+      })
       .subscribe((user) => {
+        this.loginService.user.alias = user.alias;
         this.redirect();
         console.log({ user });
       });

@@ -14,7 +14,7 @@ export class LoginService {
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
   };
-  user: User = { username: '' };
+  user: User = { username: '', alias: '' };
   loggedin = false;
   constructor(private http: HttpClient, private router: Router) {}
   login(user: User): Observable<any> {

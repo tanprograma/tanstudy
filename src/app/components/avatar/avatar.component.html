@@ -1,1 +1,8 @@
-<p>avatar works!</p>
+<div class="avatar">
+  <div class="icon">
+    <fa-icon [icon]="userIcon"></fa-icon>
+  </div>
+  <div class="user">
+    {{ login.user.alias?.length || "" ? login.user.alias : "avatar" }}
+  </div>
+</div>

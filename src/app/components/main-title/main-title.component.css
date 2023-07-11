@@ -2,14 +2,24 @@
   height: 100%;
   width: 100%;
   display: grid;
-  grid-template-columns: 10% 90% 10%;
+  grid-template-columns: 10% 80% 10%;
 }
-.aside {
+.avatar-c {
+  height: 100%;
+}
+.logout-c {
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
+.logout {
+  flex: 0 0 40%;
+  height: 70%;
+  border-radius: 2px;
+}
+
 /* .titles {
   height: 100%;
 } */
