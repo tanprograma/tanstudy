@@ -56,6 +56,10 @@ a {
 .clickable {
   cursor: pointer;
 }
+.clickable:hover {
+  background-color: black;
+  color: white;
+}
 .loader {
   position: absolute;
   height: 100%;

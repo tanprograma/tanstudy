@@ -21,6 +21,7 @@ import { MainNavigationComponent } from './components/main-navigation/main-navig
 import { MainTitleComponent } from './components/main-title/main-title.component';
 import { CardComponent } from './components/card/card.component';
 import { LoginComponent } from './components/login/login.component';
+import { LoaderComponent } from './components/loader/loader.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { LoginComponent } from './components/login/login.component';
     MainTitleComponent,
     CardComponent,
     LoginComponent,
+    LoaderComponent,
   ],
   imports: [
     BrowserModule,

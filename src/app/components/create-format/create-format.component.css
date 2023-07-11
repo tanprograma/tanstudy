@@ -3,6 +3,9 @@
   background-color: azure;
   border: 1px solid lightgray;
 }
+.view {
+  height: 100%;
+}
 .view-items {
   height: 95%;
   overflow-y: scroll;
