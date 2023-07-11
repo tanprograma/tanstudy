@@ -1,0 +1,15 @@
+.main-app {
+  height: 100vh;
+}
+.header {
+  height: 15%;
+  background-color: aqua;
+}
+.body {
+  height: 80%;
+  background-color: rgb(158, 191, 191);
+}
+.footer {
+  height: 5%;
+  background-color: rgb(211, 130, 198);
+}

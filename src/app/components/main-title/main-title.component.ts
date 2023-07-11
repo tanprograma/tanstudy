@@ -1,11 +1,13 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-
+import { faSignOut } from '@fortawesome/free-solid-svg-icons';
 @Component({
   selector: 'app-main-title',
   templateUrl: './main-title.component.html',
   styleUrls: ['./main-title.component.css'],
 })
 export class MainTitleComponent implements OnInit, OnDestroy {
+  signOutIcon = faSignOut;
+
   quotes: { quote: string; author?: string }[] = [
     {
       quote: 'be thou my vision',

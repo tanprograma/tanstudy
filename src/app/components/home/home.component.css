@@ -1,16 +1,31 @@
 .main-app {
   height: 100vh;
-  display: grid;
-  grid-template-columns: 100%;
-  grid-template-rows: 15% 80% 5%;
+  width: 100vw;
 }
-.footer {
+.main-footer {
+  height: 5%;
   background-color: rgb(106, 103, 103);
   color: rgb(179, 236, 236);
+}
+.main-header {
+  height: 15%;
+}
+.main-body {
+  height: 80%;
 }
 app-title {
   height: 70%;
 }
 app-navigation {
   height: 30%;
+}
+.main-header,
+.main-footer,
+.main-body {
+  overflow-y: scroll;
+}
+.main-footer::-webkit-scrollbar,
+.main-body::-webkit-scrollbar,
+.main-header::-webkit-scrollbar {
+  display: none;
 }

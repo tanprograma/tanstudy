@@ -7,9 +7,12 @@ import { CreateSubtopicComponent } from './app/components/create-subtopic/create
 import { CreateQuestionComponent } from './app/components/create-question/create-question.component';
 import { QuestionsComponent } from './app/components/questions/questions.component';
 import { LoginComponent } from './app/components/login/login.component';
+import { MainAppComponent } from './app/components/main-app/main-app.component';
 export const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/login' },
   { path: 'login', component: LoginComponent },
+  { path: 'mainapp', component: MainAppComponent },
+
   {
     path: 'app',
     component: HomeComponent,

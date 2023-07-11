@@ -1,6 +1,6 @@
 .admin {
   display: grid;
-  height: 90vh;
+  height: 100%;
   grid-template-columns: 20% 80%;
 }
 .admin-control {

@@ -1,9 +1,24 @@
-h1 {
-  height: 80%;
+.cont {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 10% 90% 10%;
+}
+.aside {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* .titles {
+  height: 100%;
+} */
+.main-title {
+  height: 60%;
   text-align: center;
 }
-h2 {
-  height: 20%;
+.subtitle {
+  height: 40%;
   text-align: center;
   font-weight: 400;
 }

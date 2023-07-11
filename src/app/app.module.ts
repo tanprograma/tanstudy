@@ -22,6 +22,8 @@ import { MainTitleComponent } from './components/main-title/main-title.component
 import { CardComponent } from './components/card/card.component';
 import { LoginComponent } from './components/login/login.component';
 import { LoaderComponent } from './components/loader/loader.component';
+import { AvatarComponent } from './components/avatar/avatar.component';
+import { MainAppComponent } from './components/main-app/main-app.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +45,8 @@ import { LoaderComponent } from './components/loader/loader.component';
     CardComponent,
     LoginComponent,
     LoaderComponent,
+    AvatarComponent,
+    MainAppComponent,
   ],
   imports: [
     BrowserModule,
