@@ -31,4 +31,9 @@
   height: 40%;
   text-align: center;
   font-weight: 400;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.author {
+  text-transform: capitalize;
 }

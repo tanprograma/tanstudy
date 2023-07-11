@@ -1,0 +1,9 @@
+<div class="loader" *ngIf="isLoading">loading...</div>
+<ul class="question-items non-loader">
+  <li class="question-item" *ngFor="let quote of quotes">
+    <p class="author">
+      Author: <span class="author-name">{{ quote.author }}</span>
+    </p>
+    <p class="quote">&ldquo;{{ quote.quote }}&rdquo;</p>
+  </li>
+</ul>

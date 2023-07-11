@@ -24,6 +24,8 @@ import { LoginComponent } from './components/login/login.component';
 import { LoaderComponent } from './components/loader/loader.component';
 import { AvatarComponent } from './components/avatar/avatar.component';
 import { MainAppComponent } from './components/main-app/main-app.component';
+import { CreateQuoteComponent } from './components/create-quote/create-quote.component';
+import { QuotesComponent } from './components/quotes/quotes.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +49,8 @@ import { MainAppComponent } from './components/main-app/main-app.component';
     LoaderComponent,
     AvatarComponent,
     MainAppComponent,
+    CreateQuoteComponent,
+    QuotesComponent,
   ],
   imports: [
     BrowserModule,

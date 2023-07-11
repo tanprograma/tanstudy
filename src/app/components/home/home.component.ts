@@ -1,15 +1,10 @@
 import { Component } from '@angular/core';
-import { LoginService } from 'src/app/services/login.service';
+
+import { QuoteService } from 'src/app/services/quote.service';
+import { Quote } from 'src/quote';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
 })
-export class HomeComponent {
-  constructor(public loginService: LoginService) {}
-  ngOnInit(): void {
-    if (!this.loginService.loggedin) {
-      this.loginService.logout();
-    }
-  }
-}
+export class HomeComponent {}

@@ -8,6 +8,7 @@ import { CreateQuestionComponent } from './app/components/create-question/create
 import { QuestionsComponent } from './app/components/questions/questions.component';
 import { LoginComponent } from './app/components/login/login.component';
 import { MainAppComponent } from './app/components/main-app/main-app.component';
+import { QuotesComponent } from './app/components/quotes/quotes.component';
 export const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/login' },
   { path: 'login', component: LoginComponent },
@@ -18,6 +19,7 @@ export const routes: Routes = [
     component: HomeComponent,
     children: [
       { path: 'questions', component: QuestionsComponent },
+      { path: 'quotes', component: QuotesComponent },
 
       {
         path: 'admin',

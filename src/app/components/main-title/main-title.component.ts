@@ -2,6 +2,8 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { faSignOut } from '@fortawesome/free-solid-svg-icons';
 import { Router } from '@angular/router';
 import { LoginService } from 'src/app/services/login.service';
+import { Quote } from 'src/quote';
+import { QuoteService } from 'src/app/services/quote.service';
 @Component({
   selector: 'app-main-title',
   templateUrl: './main-title.component.html',
@@ -9,35 +11,30 @@ import { LoginService } from 'src/app/services/login.service';
 })
 export class MainTitleComponent implements OnInit, OnDestroy {
   signOutIcon = faSignOut;
-
-  quotes: { quote: string; author?: string }[] = [
-    {
-      quote: 'be thou my vision',
-      author: 'irish saying',
-    },
-    {
-      quote: 'imagination is important than knowledge',
-      author: 'albert einstein',
-    },
-    {
-      quote: 'with strong determination nothing is impossible',
-      author: 'adolf hitler',
-    },
-    { quote: 'love more, hate less', author: 'kija mnada' },
-  ];
+  loading = false;
+  quotes: Quote[] = [];
   quote: { quote: string; author?: string } = {
-    quote: '',
-    author: '',
+    quote: 'imagination is better than knowledge',
+    author: 'albert einstein',
   };
   interval: any;
-  ngOnInit(): void {
-    this.setQuote(this.quotes[0]);
 
-    this.runQuotes();
+  constructor(
+    private loginService: LoginService,
+    private router: Router,
+    private quoteService: QuoteService
+  ) {}
+  ngOnInit(): void {
+    this.quoteService.getQuotes().subscribe((quotes) => {
+      this.quotes = quotes;
+
+      this.runQuotes();
+    });
   }
   ngOnDestroy(): void {
     clearInterval(this.interval);
   }
+
   runQuotes() {
     let iteration: number = 0;
     this.interval = setInterval(() => {
@@ -47,13 +44,13 @@ export class MainTitleComponent implements OnInit, OnDestroy {
       this.setQuote(this.quotes[iteration]);
 
       iteration += 1;
-    }, 300000);
+    }, 150000);
   }
-  setQuote(quote: { quote: string; author?: string }) {
+  setQuote(quote: Quote) {
     this.quote.quote = quote.quote;
     this.quote.author = quote.author;
   }
-  constructor(private loginService: LoginService, private router: Router) {}
+
   logout() {
     this.loginService.logout();
   }
