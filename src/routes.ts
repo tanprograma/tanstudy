@@ -9,6 +9,7 @@ import { QuestionsComponent } from './app/components/questions/questions.compone
 import { LoginComponent } from './app/components/login/login.component';
 import { MainAppComponent } from './app/components/main-app/main-app.component';
 import { QuotesComponent } from './app/components/quotes/quotes.component';
+import { CreateQuoteComponent } from './app/components/create-quote/create-quote.component';
 export const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/login' },
   { path: 'login', component: LoginComponent },
@@ -29,7 +30,7 @@ export const routes: Routes = [
           { path: 'create-topic', component: CreateTopicComponent },
           { path: 'create-subtopic', component: CreateSubtopicComponent },
           { path: 'create-question', component: CreateQuestionComponent },
-          { path: 'create-quote', component: CreateQuestionComponent },
+          { path: 'create-quote', component: CreateQuoteComponent },
         ],
       },
     ],
