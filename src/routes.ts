@@ -29,6 +29,7 @@ export const routes: Routes = [
           { path: 'create-topic', component: CreateTopicComponent },
           { path: 'create-subtopic', component: CreateSubtopicComponent },
           { path: 'create-question', component: CreateQuestionComponent },
+          { path: 'create-quote', component: CreateQuestionComponent },
         ],
       },
     ],
