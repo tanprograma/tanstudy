@@ -10,6 +10,7 @@ import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./questions.component.css'],
 })
 export class QuestionsComponent implements OnInit {
+  isLoading = false;
   index: number = 0;
   leftIcon = faArrowLeft;
   rightIcon = faArrowRight;
@@ -23,6 +24,9 @@ export class QuestionsComponent implements OnInit {
     private topicService: TopicService,
     private questionService: QuestionService
   ) {}
+  loading() {
+    this.isLoading = !this.isLoading;
+  }
   switchPlayer() {
     this.player = !this.player;
   }
@@ -39,14 +43,19 @@ export class QuestionsComponent implements OnInit {
     this.getQuestions();
   }
   getTopics() {
+    this.topics = this.topicService.topics;
     this.topicService.getTopics().subscribe((topics) => {
+      this.topicService.topics = topics;
       this.topics = topics;
     });
   }
   getQuestions() {
+    this.questions = this.questionService.questions;
+    this.isLoading = true;
     this.questionService.getQuestions().subscribe((questions) => {
       this.questions = questions;
       this.filtered = questions;
+      this.isLoading = false;
     });
   }
   clearDateFilter() {
