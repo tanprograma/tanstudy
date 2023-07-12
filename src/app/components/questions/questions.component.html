@@ -4,18 +4,28 @@
     <!-- <p class="menu-heading">select topic</p> -->
     <div class="topics">
       <div class="formgroup">
+        <button class="formgroup-item clickable" (click)="clearAllFilter()">
+          REMOVE FILTERS
+        </button>
+      </div>
+      <div class="formgroup">
         <label for="topic" class="formgroup-item">select topic</label>
+
         <select
           name="topic"
           id="topic"
           #t
           class="formgroup-item"
-          (click)="filterTopic(t.value)"
+          [(ngModel)]="topic"
+          (change)="filterTopic(t.value)"
         >
           <option [value]="t.topic" class="topic-item" *ngFor="let t of topics">
             {{ t.topic }}
           </option>
         </select>
+        <button class="formgroup-item clickable" (click)="clearTopicFilter()">
+          ALL TOPICS
+        </button>
       </div>
       <!-- <li
         class="topic-item"
@@ -36,9 +46,11 @@
         id="date"
         [(ngModel)]="date"
       />
-      <button class="formgroup-item" (click)="filter()">SEARCH</button>
-      <button class="formgroup-item" (click)="clearDateFilter()">
-        CLEAR FILTER
+      <button class="formgroup-item clickable" (click)="filter()">
+        SEARCH
+      </button>
+      <button class="formgroup-item clickable" (click)="clearDateFilter()">
+        ALL TIME
       </button>
     </div>
     <!-- <p class="menu-heading">PLAYER</p> -->

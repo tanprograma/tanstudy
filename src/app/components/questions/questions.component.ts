@@ -51,12 +51,19 @@ export class QuestionsComponent implements OnInit {
   }
   getQuestions() {
     this.questions = this.questionService.questions;
-    this.isLoading = true;
+    if (!this.questions.length) {
+      this.isLoading = true;
+    }
+
     this.questionService.getQuestions().subscribe((questions) => {
       this.questions = questions;
       this.filtered = questions;
       this.isLoading = false;
     });
+  }
+  clearTopicFilter() {
+    this.topic = '';
+    this.filter();
   }
   clearDateFilter() {
     this.date = '';
@@ -75,9 +82,23 @@ export class QuestionsComponent implements OnInit {
   }
   getDate() {
     const datestring = new Date(this.date).toLocaleDateString();
-    return new Date(datestring).getTime();
+    const d: Date = new Date(datestring);
+    return {
+      min: d.getTime(),
+      max: this.getMaxDate(d),
+    };
+  }
+  checkTime(testTime: any): boolean {
+    const d = this.getDate();
+    return testTime >= d.min && testTime < d.max;
+  }
+
+  getMaxDate(date: Date) {
+    const d = date.setDate(date.getDay() + 1);
+    return d;
   }
   filterTopic(topic: any) {
+    if (!topic.length) return;
     this.topic = topic;
     this.filter();
   }
@@ -86,16 +107,14 @@ export class QuestionsComponent implements OnInit {
     if (this.date.length && this.topic.length) {
       const topic_id = this.getTopicID();
 
-      const d = this.getDate();
       this.filtered = this.questions.filter((q) => {
-        return q.topic == topic_id && (q.created_at || Date.now()) >= d;
+        return q.topic == topic_id && this.checkTime(q.created_at);
       });
       return;
     }
     if (this.date.length) {
-      const date = this.getDate();
       this.filtered = this.questions.filter((q) => {
-        return (q.created_at || Date.now()) >= date;
+        return this.checkTime(q.created_at);
       });
       return;
     }
