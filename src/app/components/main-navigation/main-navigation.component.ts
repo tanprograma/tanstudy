@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { LoginService } from 'src/app/services/login.service';
-import { Navigation } from '@angular/router';
+import { faHome } from '@fortawesome/free-solid-svg-icons';
+
 import { Router } from '@angular/router';
 @Component({
   selector: 'app-main-navigation',
@@ -8,8 +8,5 @@ import { Router } from '@angular/router';
   styleUrls: ['./main-navigation.component.css'],
 })
 export class MainNavigationComponent {
-  constructor(private loginService: LoginService, private router: Router) {}
-  logout() {
-    this.loginService.logout();
-  }
+  homeIcon = faHome;
 }

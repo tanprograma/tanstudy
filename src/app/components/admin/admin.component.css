@@ -2,11 +2,14 @@
   display: grid;
   height: 100%;
   grid-template-columns: 20% 80%;
+  grid-auto-rows: 100%;
 }
 .admin-control {
   background-color: rgb(237, 243, 244);
   color: rgb(91, 88, 88);
+  height: 100%;
 }
 .selected {
   background-color: rgb(243, 220, 233);
+  height: 100%;
 }

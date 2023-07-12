@@ -52,6 +52,8 @@ export class CreateQuestionComponent implements OnInit {
     this.subtopic = v;
   }
   add() {
+    if (!this.question.length || !this.topic.length || !this.subtopic.length)
+      return;
     this.questions.splice(0, 0, {
       question: this.question,
       topic: this.topic,
@@ -67,7 +69,7 @@ export class CreateQuestionComponent implements OnInit {
   deleteAll() {
     this.questions = [];
   }
-  deleteOne(item: Topic) {
+  deleteOne(item: Question) {
     this.questions = this.questions.filter((i) => {
       return i != item;
     });

@@ -52,7 +52,11 @@
   <div class="view">
     <div class="view-controls">
       <ul class="view-control">
-        <li [ngStyle]="{ color: 'red' }" class="clickable">
+        <li
+          (click)="deleteAll()"
+          [ngStyle]="{ color: 'red' }"
+          class="clickable"
+        >
           <span class="icon"><fa-icon [icon]="deleteIcon"></fa-icon></span>
         </li>
         <li class="clickable">
@@ -70,6 +74,16 @@
           <ul class="view-control">
             <li>topic: {{ q.topic }}</li>
             <li>subtopic: {{ q.subtopic }}</li>
+            <li>
+              <button (click)="deleteOne(q)">
+                <span class="icon"
+                  ><fa-icon
+                    [ngStyle]="{ color: 'red' }"
+                    [icon]="deleteIcon"
+                  ></fa-icon></span
+                >delete
+              </button>
+            </li>
             <li>
               <button>
                 <span class="icon"><fa-icon [icon]="editIcon"></fa-icon></span

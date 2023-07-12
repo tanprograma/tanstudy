@@ -8,14 +8,17 @@
 }
 .navigation-item {
   flex: 0 0 20%;
-
+  color: white;
   margin: 0 5px;
   border-radius: 5px;
   text-transform: uppercase;
-  background-color: rgb(194, 230, 237);
+  background-color: rgb(234, 214, 229);
+}
+a {
+  color: rgb(69, 52, 52);
 }
 .navigation-item:hover {
-  background-color: rgb(191, 183, 183);
+  background-color: rgb(195, 241, 246);
   color: rgb(248, 241, 241);
 }
 .logout-link {
