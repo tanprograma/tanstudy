@@ -51,13 +51,14 @@ export class QuestionsComponent implements OnInit {
   }
   getQuestions() {
     this.questions = this.questionService.questions;
+    this.filtered = this.sortTime(this.questions);
     if (!this.questions.length) {
       this.isLoading = true;
     }
 
     this.questionService.getQuestions().subscribe((questions) => {
       this.questions = questions;
-      this.filtered = questions;
+      this.filtered = this.sortTime(questions);
       this.isLoading = false;
     });
   }
@@ -107,26 +108,29 @@ export class QuestionsComponent implements OnInit {
     if (this.date.length && this.topic.length) {
       const topic_id = this.getTopicID();
 
-      this.filtered = this.questions.filter((q) => {
+      const filtered = this.questions.filter((q) => {
         return q.topic == topic_id && this.checkTime(q.created_at);
       });
+      this.filtered = this.sortTime(filtered);
       return;
     }
     if (this.date.length) {
-      this.filtered = this.questions.filter((q) => {
+      const filtered = this.questions.filter((q) => {
         return this.checkTime(q.created_at);
       });
+      this.filtered = this.sortTime(filtered);
       return;
     }
     if (this.topic.length) {
       const topic_id = this.getTopicID();
 
-      this.filtered = this.questions.filter((q) => {
+      const filtered = this.questions.filter((q) => {
         return q.topic == topic_id;
       });
+      this.filtered = this.sortTime(filtered);
       return;
     }
-    this.filtered = this.questions;
+    this.filtered = this.sortTime(this.questions);
   }
   cardSubtopics() {
     const subtopics: any = [];
@@ -134,5 +138,16 @@ export class QuestionsComponent implements OnInit {
       subtopics.splice(0, 0, ...(t.subtopics || []));
     });
     return subtopics.length;
+  }
+  sortTime(items: Question[]) {
+    return items.sort((a: any, b: any) => {
+      if (a.created_at > b.created_at) {
+        return 1;
+      }
+      if (a.created_at < b?.created_at) {
+        return -1;
+      }
+      return 0;
+    });
   }
 }
