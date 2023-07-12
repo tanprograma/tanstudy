@@ -11,8 +11,9 @@ import { MainAppComponent } from './app/components/main-app/main-app.component';
 import { QuotesComponent } from './app/components/quotes/quotes.component';
 import { CreateQuoteComponent } from './app/components/create-quote/create-quote.component';
 export const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: '/login' },
+  { path: '', pathMatch: 'full', redirectTo: '/home' },
   { path: 'login', component: LoginComponent },
+  { path: 'home', component: MainAppComponent },
   { path: 'mainapp', component: MainAppComponent },
 
   {
