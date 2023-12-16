@@ -38,7 +38,7 @@ export class DiaryComponent implements OnInit {
       diaries.reduce((acc: any, current: Diary) => {
         const date = this.getDate(current);
         const key: string = `d_${date.getTime()}`;
-        if (acc[key] != undefined) {
+        if (acc[key] == undefined) {
           acc[key] = { date: this.getDateString(date), entries: [current] };
           return acc;
         }
