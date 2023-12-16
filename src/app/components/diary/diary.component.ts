@@ -51,12 +51,26 @@ export class DiaryComponent implements OnInit {
     );
   }
   getDate(item: Diary): Date {
-    if (typeof item.created == 'string') return new Date(item.created);
-    return item.created ? item.created : new Date();
+    if (typeof item.created == 'string')
+      return this.createStandardDate(item.created);
+    return item.created ? this.createStandardDate(item.created) : new Date();
   }
   getDateString(date: Date) {
     return `${date.getUTCDate()}-${
       date.getUTCMonth() + 1
     }-${date.getUTCFullYear()}`;
+  }
+  createStandardDate(date: string | Date) {
+    if (typeof date == 'string') {
+      const newDate = new Date(date);
+      return new Date(
+        `${
+          newDate.getUTCMonth() + 1
+        }/${newDate.getUTCDate()}/${newDate.getUTCFullYear()}`
+      );
+    }
+    return new Date(
+      `${date.getUTCMonth() + 1}/${date.getUTCDate()}/${date.getUTCFullYear()}`
+    );
   }
 }
