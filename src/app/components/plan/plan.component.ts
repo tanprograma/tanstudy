@@ -20,7 +20,7 @@ export class PlanComponent {
   }
   getPlan() {
     const plans = this.planService.plans;
-    if (!plans.length) {
+    if (plans.length == 0) {
       this.loading();
       this.planService.getPlans().subscribe((plans) => {
         this.planService.plans = plans;

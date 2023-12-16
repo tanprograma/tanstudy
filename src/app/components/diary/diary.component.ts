@@ -19,18 +19,21 @@ export class DiaryComponent implements OnInit {
     this.isLoading = !this.isLoading;
   }
   getDiary() {
-    const diaries = this.diaryService.diaries;
-    if (!diaries.length) {
+    const res = this.diaryService.diaries;
+    if (res.length == 0) {
       this.loading();
       this.diaryService.getDiaries().subscribe((diaries) => {
+        console.log({ diaries });
         this.diaryService.diaries = diaries;
         this.setDiary(diaries);
         this.isLoading = false;
       });
     }
     this.diaryService.getDiaries().subscribe((diaries) => {
+      console.log(diaries);
       this.diaryService.diaries = diaries;
       this.setDiary(diaries);
+      this.isLoading = false;
     });
   }
   setDiary(diaries: Diary[]) {
