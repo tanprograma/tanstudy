@@ -25,5 +25,5 @@ export function getItems<T>(url: string, http: HttpClient): Observable<T[]> {
   const httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
   };
-  return http.get<T[]>(`${url}/create`);
+  return http.get<T[]>(url);
 }
