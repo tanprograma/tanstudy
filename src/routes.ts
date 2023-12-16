@@ -10,6 +10,14 @@ import { LoginComponent } from './app/components/login/login.component';
 import { MainAppComponent } from './app/components/main-app/main-app.component';
 import { QuotesComponent } from './app/components/quotes/quotes.component';
 import { CreateQuoteComponent } from './app/components/create-quote/create-quote.component';
+import { CreateDiaryComponent } from './app/components/create-diary/create-diary.component';
+import { CreateReviewComponent } from './app/components/create-review/create-review.component';
+import { CreateThoughtComponent } from './app/components/create-thought/create-thought.component';
+import { CreatePlanComponent } from './app/components/create-plan/create-plan.component';
+import { DiaryComponent } from './app/components/diary/diary.component';
+import { PlanComponent } from './app/components/plan/plan.component';
+import { ThoughtComponent } from './app/components/thought/thought.component';
+import { ReviewComponent } from './app/components/review/review.component';
 export const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/home' },
   { path: 'login', component: LoginComponent },
@@ -22,6 +30,10 @@ export const routes: Routes = [
     children: [
       { path: 'questions', component: QuestionsComponent },
       { path: 'quotes', component: QuotesComponent },
+      { path: 'diary', component: DiaryComponent },
+      { path: 'plans', component: PlanComponent },
+      { path: 'thoughts', component: ThoughtComponent },
+      { path: 'reviews', component: ReviewComponent },
 
       {
         path: 'admin',
@@ -32,6 +44,10 @@ export const routes: Routes = [
           { path: 'create-subtopic', component: CreateSubtopicComponent },
           { path: 'create-question', component: CreateQuestionComponent },
           { path: 'create-quote', component: CreateQuoteComponent },
+          { path: 'create-diary', component: CreateDiaryComponent },
+          { path: 'create-plan', component: CreatePlanComponent },
+          { path: 'create-review', component: CreateReviewComponent },
+          { path: 'create-thought', component: CreateThoughtComponent },
         ],
       },
     ],

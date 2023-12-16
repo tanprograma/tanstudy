@@ -1,0 +1,4 @@
+<div class="loader" *ngIf="isLoading">loading...</div>
+<ul class="question-items non-loader">
+  <app-thought-item [item]="thought" *ngFor="let thought of thoughts" />
+</ul>

@@ -1,0 +1,20 @@
+<li class="question-item">
+  <p class="author">
+    <span class="author-name">{{ item.topic }}</span>
+  </p>
+  <p class="quote">
+    diary entries :
+    <span style="font-weight: 600">{{ item.points.length }}</span>
+    <button
+      style="margin-right: 0; text-transform: uppercase"
+      (click)="toggleView()"
+    >
+      {{ expanded ? "close" : "expand" }}
+    </button>
+  </p>
+  <ul *ngIf="expanded" style="list-style: none; padding: 5px">
+    <li *ngFor="let point of item.points">
+      {{ point }}
+    </li>
+  </ul>
+</li>

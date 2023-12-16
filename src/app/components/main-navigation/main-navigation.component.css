@@ -7,7 +7,7 @@
   display: none;
 }
 .navigation-item {
-  flex: 0 0 20%;
+  flex: 0 0 auto;
   color: white;
   margin: 0 5px;
   border-radius: 5px;

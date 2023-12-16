@@ -3,58 +3,14 @@
     <p>CREATE</p>
     <ul>
       <li
-        #format
+        *ngFor="let i of items"
         class="side-menu-item"
-        (click)="select(format)"
-        [class.selected]="selected == format"
+        (click)="select(i.name)"
+        [class.selected]="selected == i.name"
       >
         <app-link-item
           [style]="linkstyle"
-          [link]="{ name: 'format', url: '/app/admin/create-format' }"
-        ></app-link-item>
-      </li>
-      <li
-        #topic
-        class="side-menu-item"
-        (click)="select(topic)"
-        [class.selected]="selected == topic"
-      >
-        <app-link-item
-          [style]="linkstyle"
-          [link]="{ name: 'topic', url: '/app/admin/create-topic' }"
-        ></app-link-item>
-      </li>
-      <li
-        #subtopic
-        class="side-menu-item"
-        (click)="select(subtopic)"
-        [class.selected]="selected == subtopic"
-      >
-        <app-link-item
-          [style]="linkstyle"
-          [link]="{ name: 'subtopic', url: '/app/admin/create-subtopic' }"
-        ></app-link-item>
-      </li>
-      <li
-        #question
-        class="side-menu-item"
-        (click)="select(question)"
-        [class.selected]="selected == question"
-      >
-        <app-link-item
-          [style]="linkstyle"
-          [link]="{ name: 'question', url: '/app/admin/create-question' }"
-        ></app-link-item>
-      </li>
-      <li
-        #quote
-        class="side-menu-item"
-        (click)="select(quote)"
-        [class.selected]="selected == quote"
-      >
-        <app-link-item
-          [style]="linkstyle"
-          [link]="{ name: 'quote', url: '/app/admin/create-quote' }"
+          [link]="setUrl(i.name)"
         ></app-link-item>
       </li>
     </ul>

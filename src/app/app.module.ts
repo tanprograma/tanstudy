@@ -26,6 +26,19 @@ import { AvatarComponent } from './components/avatar/avatar.component';
 import { MainAppComponent } from './components/main-app/main-app.component';
 import { CreateQuoteComponent } from './components/create-quote/create-quote.component';
 import { QuotesComponent } from './components/quotes/quotes.component';
+import { CreateDiaryComponent } from './components/create-diary/create-diary.component';
+import { CreateReviewComponent } from './components/create-review/create-review.component';
+import { CreateThoughtComponent } from './components/create-thought/create-thought.component';
+
+import { CreatePlanComponent } from './components/create-plan/create-plan.component';
+import { DiaryComponent } from './components/diary/diary.component';
+import { DiaryItemComponent } from './components/diary-item/diary-item.component';
+import { PlanComponent } from './components/plan/plan.component';
+import { PlanItemComponent } from './components/plan-item/plan-item.component';
+import { ThoughtComponent } from './components/thought/thought.component';
+import { ThoughtItemComponent } from './components/thought-item/thought-item.component';
+import { ReviewComponent } from './components/review/review.component';
+import { ReviewItemComponent } from './components/review-item/review-item.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +64,19 @@ import { QuotesComponent } from './components/quotes/quotes.component';
     MainAppComponent,
     CreateQuoteComponent,
     QuotesComponent,
+    CreateDiaryComponent,
+    CreateReviewComponent,
+    CreateThoughtComponent,
+
+    CreatePlanComponent,
+      DiaryComponent,
+      DiaryItemComponent,
+      PlanComponent,
+      PlanItemComponent,
+      ThoughtComponent,
+      ThoughtItemComponent,
+      ReviewComponent,
+      ReviewItemComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,87 @@
+<div class="loader" *ngIf="loading">loading</div>
+<div class="admin-item non-loader">
+  <div class="form">
+    <div class="formgroup">
+      <p class="heading">DIARY FORM</p>
+    </div>
+    <div class="formgroup">
+      <label for="" class="formgroup-item">topic</label>
+      <textarea
+        name=""
+        id=""
+        cols="30"
+        rows="10"
+        class="formgroup-item"
+        [(ngModel)]="review.topic"
+      ></textarea>
+    </div>
+
+    <div class="formgroup">
+      <label for="" class="formgroup-item">write diary</label>
+      <textarea
+        name=""
+        id=""
+        cols="30"
+        rows="10"
+        class="formgroup-item"
+        [(ngModel)]="point"
+      ></textarea>
+    </div>
+    <div class="formgroup">
+      <button class="formgroup-item" (click)="add()">ADD QUESTION</button>
+    </div>
+  </div>
+  <div class="view">
+    <div class="view-controls">
+      <ul class="view-control">
+        <li
+          (click)="deleteAll()"
+          [ngStyle]="{ color: 'red' }"
+          class="clickable"
+        >
+          <span class="icon"><fa-icon [icon]="deleteIcon"></fa-icon></span>
+        </li>
+        <li class="clickable">
+          <span class="icon"><fa-icon [icon]="openIcon"></fa-icon></span>edit
+        </li>
+        <li (click)="saveAll()" class="clickable">
+          <span class="icon"><fa-icon [icon]="saveIcon"></fa-icon></span>save
+        </li>
+      </ul>
+    </div>
+
+    <ul class="view-items">
+      <li class="view-item" *ngFor="let q of review.points">
+        <div class="view-control-container">
+          <ul class="view-control">
+            <!-- <li *ngIf="q.created">topic: {{ q.topic }}</li> -->
+            <!-- <li>subtopic: {{ q.content }}</li> -->
+            <li>
+              <button (click)="deleteOne(q)">
+                <span class="icon"
+                  ><fa-icon
+                    [ngStyle]="{ color: 'red' }"
+                    [icon]="deleteIcon"
+                  ></fa-icon></span
+                >delete
+              </button>
+            </li>
+            <li>
+              <button>
+                <span class="icon"><fa-icon [icon]="editIcon"></fa-icon></span
+                >edit
+              </button>
+            </li>
+            <!-- <li *ngIf="!q._id">
+              <button (click)="saveOne(q)">
+                <span class="icon"><fa-icon [icon]="saveIcon"></fa-icon></span
+                >save
+              </button>
+            </li> -->
+          </ul>
+        </div>
+        <p class="question">{{ q }}</p>
+      </li>
+    </ul>
+  </div>
+</div>

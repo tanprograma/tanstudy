@@ -6,6 +6,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./admin.component.css'],
 })
 export class AdminComponent {
+  items: { name: string }[] = [
+    { name: 'format' },
+    { name: 'topic' },
+    { name: 'subtopic' },
+    { name: 'quote' },
+    { name: 'question' },
+    { name: 'diary' },
+    { name: 'plan' },
+    { name: 'thought' },
+    { name: 'review' },
+  ];
   linkstyle = {
     padding: '1px 0 1px 5%',
 
@@ -16,5 +27,8 @@ export class AdminComponent {
   selected: any;
   select(item: any) {
     this.selected = item;
+  }
+  setUrl(name: string) {
+    return { name: name, url: `/app/admin/create-${name}` };
   }
 }
