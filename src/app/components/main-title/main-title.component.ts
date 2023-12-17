@@ -14,8 +14,8 @@ export class MainTitleComponent implements OnInit, OnDestroy {
   loading = false;
   quotes: Quote[] = [];
   quote: { quote: string; author?: string } = {
-    quote: 'imagination is better than knowledge',
-    author: 'albert einstein',
+    quote: '',
+    author: '',
   };
   interval: any;
 

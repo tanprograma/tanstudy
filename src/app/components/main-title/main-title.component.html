@@ -1,12 +1,11 @@
 <div class="cont">
-  
   <div class="avatar-c">
     <app-avatar></app-avatar>
   </div>
 
   <div class="titles">
     <h1 class="main-title">TANSTUDY&REG;</h1>
-    <h2 class="subtitle">
+    <h2 class="subtitle" *ngIf="quote.quote.length > 0">
       ...&ldquo;{{ quote.quote }}&rdquo;-
       <span class="author">{{ quote.author }}</span>
     </h2>
