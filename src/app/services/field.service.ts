@@ -16,9 +16,9 @@ export class FieldService {
     return this.http.get<Field[]>(this.url);
   }
   createFields(fields: Field[]): Observable<Field[]> {
-    return createItems(fields, `${this.url}/create`, this.http);
+    return createItems(fields, this.url, this.http);
   }
   createField(field: Field): Observable<Field> {
-    return createItem(field, `${this.url}/create`, this.http);
+    return createItem(field, this.url, this.http);
   }
 }
