@@ -15,7 +15,7 @@ export class DiaryService {
   };
   constructor(private http: HttpClient) {}
   diaries: Diary[] = [];
-  getDiaries(): Observable<Diary[]> {
+  getDiaries(): Observable<{ created: string; content: string }[]> {
     return getItems(this.url, this.http);
   }
   createDiaries(diaries: Diary[]): Observable<Diary[]> {

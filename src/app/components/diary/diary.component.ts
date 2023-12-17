@@ -36,12 +36,12 @@ export class DiaryComponent implements OnInit {
       this.isLoading = false;
     });
   }
-  setDiary(diaries: Diary[]) {
+  setDiary(diaries: { created: string }[]) {
     this.diary = Object.values(
-      diaries.reduce((acc: any, current: Diary) => {
-        const date = this.getDate(current);
-        const key: string = `d_${date.getTime()}`;
-        if (acc[key] == undefined) {
+      diaries.reduce((acc: any, current: { created: string }) => {
+        const date = new Date(current.created);
+        const key: string = `d_${date.getMonth()}_${date.getDate()}_${date.getFullYear()}`;
+        if (!acc[key]) {
           acc[key] = { date: this.getDateString(date), entries: [current] };
           return acc;
         }
@@ -50,27 +50,8 @@ export class DiaryComponent implements OnInit {
       }, {})
     );
   }
-  getDate(item: Diary): Date {
-    if (typeof item.created == 'string')
-      return this.createStandardDate(item.created);
-    return item.created ? this.createStandardDate(item.created) : new Date();
-  }
+
   getDateString(date: Date) {
-    return `${date.getUTCDate()}-${
-      date.getUTCMonth() + 1
-    }-${date.getUTCFullYear()}`;
-  }
-  createStandardDate(date: string | Date) {
-    if (typeof date == 'string') {
-      const newDate = new Date(date);
-      return new Date(
-        `${
-          newDate.getUTCMonth() + 1
-        }/${newDate.getUTCDate()}/${newDate.getUTCFullYear()}`
-      );
-    }
-    return new Date(
-      `${date.getUTCMonth() + 1}/${date.getUTCDate()}/${date.getUTCFullYear()}`
-    );
+    return `${date.getDate()}-${date.getMonth() + 1}-${date.getFullYear()}`;
   }
 }

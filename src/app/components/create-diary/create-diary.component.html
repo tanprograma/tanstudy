@@ -1,39 +1,6 @@
 <div class="loader" *ngIf="loading">loading</div>
 <div class="admin-item non-loader">
   <div class="form">
-    <!-- <div class="formgroup">
-      <p class="heading">DIARY FORM</p>
-    </div>
-    <div class="formgroup">
-      <label for="topic" class="formgroup-item">topic</label>
-      <select
-        name="topic"
-        id="topic"
-        class="formgroup-item"
-        [(ngModel)]="topic"
-        #xtopic
-        (change)="getSubtopics(xtopic.value)"
-      >
-        <option [value]="v.topic" *ngFor="let v of topics">
-          {{ v.topic }}
-        </option>
-      </select>
-    </div>
-    <div class="formgroup">
-      <label for="subtopic" class="formgroup-item">subtopic</label>
-      <select
-        name="subtopic"
-        id="subtopic"
-        #xsubtopic
-        class="formgroup-item"
-        [(ngModel)]="subtopic"
-        (change)="setSubtopic(xsubtopic.value)"
-      >
-        <option [value]="v.subtopic" *ngFor="let v of subtopics">
-          {{ v.subtopic }}
-        </option>
-      </select>
-    </div> -->
     <div class="formgroup">
       <label for="" class="formgroup-item">write diary</label>
       <textarea
@@ -43,6 +10,7 @@
         rows="10"
         class="formgroup-item"
         [(ngModel)]="diary"
+        style="padding: 5px"
       ></textarea>
     </div>
     <div class="formgroup">
