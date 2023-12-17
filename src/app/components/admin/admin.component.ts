@@ -16,6 +16,7 @@ export class AdminComponent {
     { name: 'plan' },
     { name: 'thought' },
     { name: 'review' },
+    { name: 'field' },
   ];
   linkstyle = {
     padding: '1px 0 1px 5%',

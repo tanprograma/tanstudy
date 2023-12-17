@@ -18,6 +18,7 @@ import { DiaryComponent } from './app/components/diary/diary.component';
 import { PlanComponent } from './app/components/plan/plan.component';
 import { ThoughtComponent } from './app/components/thought/thought.component';
 import { ReviewComponent } from './app/components/review/review.component';
+import { CreateFieldComponent } from './app/components/create-field/create-field.component';
 export const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/home' },
   { path: 'login', component: LoginComponent },
@@ -48,6 +49,7 @@ export const routes: Routes = [
           { path: 'create-plan', component: CreatePlanComponent },
           { path: 'create-review', component: CreateReviewComponent },
           { path: 'create-thought', component: CreateThoughtComponent },
+          { path: 'create-field', component: CreateFieldComponent },
         ],
       },
     ],
