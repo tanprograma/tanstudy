@@ -1,3 +1,15 @@
+export interface Field {
+  _id?: string;
+
+  name: string;
+}
+export interface Topic {
+  _id?: string;
+
+  topic: string;
+  field: string;
+  subtopics?: { subtopic: string; _id?: string }[];
+}
 export interface Diary {
   _id?: string;
   created?: string | Date;

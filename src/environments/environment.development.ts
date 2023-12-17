@@ -9,5 +9,6 @@ export const environment = {
   review_url: 'http://localhost:5000/api/reviews',
   plan_url: 'http://localhost:5000/api/plans',
   thought_url: 'http://localhost:5000/api/thoughts',
+  field_url: 'http://localhost:5000/api/fields',
   login_page: '/login',
 };

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Topic } from 'src/topic';
+import { Topic } from 'src/interfaces';
 import { TopicService } from 'src/app/services/topic.service';
 import {
   faEdit,
@@ -7,6 +7,8 @@ import {
   faFolderOpen,
   faTimes,
 } from '@fortawesome/free-solid-svg-icons';
+import { FieldService } from 'src/app/services/field.service';
+import { Field } from 'src/interfaces';
 @Component({
   selector: 'app-create-topic',
   templateUrl: './create-topic.component.html',
@@ -20,10 +22,15 @@ export class CreateTopicComponent implements OnInit {
   openIcon = faFolderOpen;
 
   topics: Topic[] = [];
+  fields: Field[] = [];
   created_topics: Topic[] = [];
 
   topic: string = '';
-  constructor(private topicService: TopicService) {}
+  field: string = '';
+  constructor(
+    private topicService: TopicService,
+    private fieldService: FieldService
+  ) {}
   ngOnInit(): void {
     this.getTopics();
   }
@@ -31,7 +38,10 @@ export class CreateTopicComponent implements OnInit {
     this.loading = true;
     this.topicService.getTopics().subscribe((topics) => {
       this.topics = topics;
-      this.loading = false;
+      this.fieldService.getFields().subscribe((fields) => {
+        this.fields = fields;
+        this.loading = false;
+      });
     });
   }
   add() {
@@ -41,11 +51,13 @@ export class CreateTopicComponent implements OnInit {
     if (found) return;
     this.created_topics.splice(0, 0, {
       topic: this.topic,
+      field: this.field,
     });
     this.clear();
   }
   clear() {
     this.topic = '';
+    this.field = '';
   }
   deleteAll() {
     this.created_topics = [];

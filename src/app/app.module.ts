@@ -39,6 +39,7 @@ import { ThoughtComponent } from './components/thought/thought.component';
 import { ThoughtItemComponent } from './components/thought-item/thought-item.component';
 import { ReviewComponent } from './components/review/review.component';
 import { ReviewItemComponent } from './components/review-item/review-item.component';
+import { CreateFieldComponent } from './components/create-field/create-field.component';
 
 @NgModule({
   declarations: [
@@ -77,6 +78,7 @@ import { ReviewItemComponent } from './components/review-item/review-item.compon
       ThoughtItemComponent,
       ReviewComponent,
       ReviewItemComponent,
+      CreateFieldComponent,
   ],
   imports: [
     BrowserModule,

@@ -2,42 +2,27 @@
 <div class="admin-item non-loader">
   <div class="form">
     <div class="formgroup">
-      <p class="heading">TOPIC FORM</p>
+      <p class="heading">FIELD FORM</p>
     </div>
     <div class="formgroup">
       <label for="topic" class="formgroup-item">field</label>
-      <select
-        list="fields"
-        id="field"
-        name="field"
-        class="formgroup-item"
-        autocomplete="off"
-        [(ngModel)]="field"
-      >
-        <option [value]="v.name" *ngFor="let v of fields">
-          {{ v.name }}
-        </option>
-      </select>
-    </div>
-    <div class="formgroup">
-      <label for="topic" class="formgroup-item">topic</label>
       <input
         list="topics"
         id="topic"
         name="topic"
         class="formgroup-item"
         autocomplete="off"
-        [(ngModel)]="topic"
+        [(ngModel)]="field"
       />
       <datalist id="topics">
-        <option [value]="v.topic" *ngFor="let v of topics">
-          {{ v.topic }}
+        <option [value]="v.name" *ngFor="let v of fields">
+          {{ v.name }}
         </option>
       </datalist>
     </div>
 
     <div class="formgroup">
-      <button class="formgroup-item" (click)="add()">ADD topic</button>
+      <button class="formgroup-item" (click)="add()">ADD</button>
     </div>
   </div>
   <div class="view">
@@ -58,7 +43,7 @@
     </div>
 
     <ul class="view-items">
-      <li class="view-item" *ngFor="let q of created_topics">
+      <li class="view-item" *ngFor="let q of created_Fields">
         <div class="view-control-container">
           <ul class="view-control">
             <li>
@@ -88,7 +73,7 @@
           </li>
           <li>
             <p>format</p>
-            <p>{{ q.topic }}</p>
+            <p>{{ q.name }}</p>
           </li>
         </ul>
       </li>
