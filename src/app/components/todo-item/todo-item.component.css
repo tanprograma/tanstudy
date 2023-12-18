@@ -1,0 +1,26 @@
+.question-items {
+  height: 100%;
+  padding: 10px;
+  overflow-y: scroll;
+  background-color: aliceblue;
+  color: rgb(32, 26, 26);
+}
+.question-items::-webkit-scrollbar {
+  display: none;
+}
+.question-item {
+  padding: 5px;
+  margin: 5px;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  min-height: 3rem;
+}
+.question-item:hover {
+  cursor: pointer;
+  background-color: white;
+  color: black;
+}
+.author {
+  padding: 10px;
+  border-left: 5px solid black;
+}
