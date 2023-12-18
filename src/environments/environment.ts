@@ -10,5 +10,6 @@ export const environment = {
   plan_url: 'https://tanstudyapi.onrender.com/api/plans',
   thought_url: 'https://tanstudyapi.onrender.com/api/thoughts',
   field_url: 'https://tanstudyapi.onrender.com/api/fields',
+  todo_url: 'https://tanstudyapi.onrender.com/api/todos',
   login_page: '/login',
 };

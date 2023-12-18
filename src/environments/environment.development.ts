@@ -10,5 +10,6 @@ export const environment = {
   plan_url: 'http://localhost:5000/api/plans',
   thought_url: 'http://localhost:5000/api/thoughts',
   field_url: 'http://localhost:5000/api/fields',
+  todo_url: 'http://localhost:5000/api/todos',
   login_page: '/login',
 };

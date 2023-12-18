@@ -40,6 +40,8 @@ import { ThoughtItemComponent } from './components/thought-item/thought-item.com
 import { ReviewComponent } from './components/review/review.component';
 import { ReviewItemComponent } from './components/review-item/review-item.component';
 import { CreateFieldComponent } from './components/create-field/create-field.component';
+import { TodoComponent } from './components/todo/todo.component';
+import { CreateTodoComponent } from './components/create-todo/create-todo.component';
 
 @NgModule({
   declarations: [
@@ -79,6 +81,8 @@ import { CreateFieldComponent } from './components/create-field/create-field.com
       ReviewComponent,
       ReviewItemComponent,
       CreateFieldComponent,
+      TodoComponent,
+      CreateTodoComponent,
   ],
   imports: [
     BrowserModule,

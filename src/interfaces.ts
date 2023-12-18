@@ -33,6 +33,12 @@ export interface Plan {
   topic: string;
   points: { item: string; completed?: boolean }[];
 }
+export interface Todo {
+  _id?: string;
+  created?: string | Date;
+  topic: string;
+  points: { item: string; completed?: boolean }[];
+}
 // export interface Review {
 //   _id?: string;
 //   created?: string | Date;

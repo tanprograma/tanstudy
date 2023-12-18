@@ -1,0 +1,4 @@
+<div class="loader" *ngIf="isLoading">loading...</div>
+<ul class="question-items non-loader">
+  <app-plan-item [item]="plan" *ngFor="let plan of plans" />
+</ul>
