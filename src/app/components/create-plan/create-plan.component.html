@@ -45,7 +45,7 @@
         <li class="clickable">
           <span class="icon"><fa-icon [icon]="openIcon"></fa-icon></span>edit
         </li>
-        <li (click)="saveAll()" class="clickable">
+        <li (click)="saveAll()" class="clickable" *ngIf="!review._id">
           <span class="icon"><fa-icon [icon]="saveIcon"></fa-icon></span>save
         </li>
       </ul>
